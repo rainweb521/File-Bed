@@ -42,17 +42,27 @@ class filebed extends Model{
 //        exit();
         filebed::save($data,['id'=>$id]);
     }
+    /**
+     * 给文件添加有效期，默认为 7 天
+     */
     public function set_Out_time($where,$day){
         $data = $this->get_filebedInfo($where);
+        $data['state'] = 1;
         $data['out_time'] = date("Y-m-d", strtotime('+'.$day." day ".$data['out_time']));
         filebed::save($data,$where);
     }
+    /**
+     * 将文件设置为过期，但不删除文件
+     */
     public function set_Out($where){
         $data = $this->get_filebedInfo($where);
         $data['state'] = 0;
         $data['out_time'] = date('Y-m-d');
         filebed::save($data,$where);
     }
+    /**
+     * 将文件置顶，也就是一直不过期，将日期设为0000-00-00
+     */
     public function set_Top($where){
         $data = $this->get_filebedInfo($where);
         $data['out_time'] = '0000-00-00';

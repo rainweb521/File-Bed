@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 use app\config\model\filebed;
+use app\config\model\key_password;
 use think\Controller;
 use \think\Request;
 use \think\View;
@@ -96,6 +97,8 @@ class Index extends Controller {
         }
         $title = date('Y-m-d')."-文件床清理报告";
         $email = 'nylrain@163.com';
+//        $key_model = new key_password();
+//        $key = $key_model->get_key_passwordInfo(array('id'=>'1'));
         $url='http://function.rain1024.com/index.php?c=email&a=public_rain_sendemail&title='.$title.'&email='.$email.'&message='.$text;
         $result = file_get_contents($url);
         echo $result;
