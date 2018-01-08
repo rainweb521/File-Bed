@@ -100,6 +100,16 @@
                                       <!--&lt;!&ndash;<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>&ndash;&gt;-->
                                       <!--<a href="/manage.php/manage/index/delete?id={$file_list.id}"><button title="删除文件" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>-->
                                   </td>
+                                  {elseif condition="$file_list.state == 2"/}
+                                  <td><span class="label label-danger label-mini">置顶</span></td>
+                                  <td>
+                                      <a href="{$file_list.file_url}" download="{$file_list.file_name}"><button class="btn btn-success btn-xs" title="下载文件"><i class="fa fa-download"></i></button></a>
+                                      <!--<a href="/manage.php/manage/index/add_out_time?id={$file_list.id}"><button class="btn btn-success btn-xs" title="增加七天有效期"><i class="fa fa-plus"></i></button></a>-->
+                                      <a href="/manage.php/manage/index/set_Out?id={$file_list.id}"><button class="btn btn-success btn-xs" title="将文件过期"><i class="fa fa-times"></i></button></a>
+                                      <a href="/manage.php/manage/index/set_Top?id={$file_list.id}"><button class="btn btn-success btn-xs" title="将文件永久置顶"><i class="fa fa-thumb-tack"></i></button></a>
+                                      <!--<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>-->
+                                      <a href="/manage.php/manage/index/delete?id={$file_list.id}"><button title="删除文件" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button></a>
+                                  </td>
                                   {else /}
                                   <td><span class="label label-warning label-mini">过期</span></td>
                                   <td>

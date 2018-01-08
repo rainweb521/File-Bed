@@ -110,6 +110,9 @@
                                           </div>
                                           <div class="task-title">
                                               <span class="task-title-sp">{$file_list.file_name}</span>
+                                              {if condition="$file_list.state == 2"}
+                                              <span class="badge bg-important">置顶</span>
+                                              {/if}
                                               <span class="badge bg-warning">{$file_list.upload_time}</span>
                                               <div class="pull-right hidden-phone">
                                                   <a href="{$file_list.file_url}" download="{$file_list.file_name}" ><button title="点击即可下载" class="btn btn-success btn-xs"><i class=" fa fa-download"></i></button></a>

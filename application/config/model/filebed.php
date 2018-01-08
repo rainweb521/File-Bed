@@ -66,7 +66,7 @@ class filebed extends Model{
     public function set_Top($where){
         $data = $this->get_filebedInfo($where);
         $data['out_time'] = '0000-00-00';
-        $data['state'] = 1;
+        $data['state'] = 2;
         filebed::save($data,$where);
     }
 }
