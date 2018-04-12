@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+
+    <title>Rain.文件上传床</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/public/assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/public/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    
+    <!-- Custom styles for this template -->
+    <link href="/public/assets/css/style.css" rel="stylesheet">
+    <link href="/public/assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/assets/css/to-do.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/public/js/html5shiv.js"></script>
+      <script src="/public/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/public/css/default.css">
+        <link href="/public/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+        <script src="/public/js/jquery.min.js" type="text/javascript"></script>
+        <script>window.jQuery || document.write('<script src="/public/js/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="/public/js/fileinput.js" type="text/javascript"></script>
+        <!--简体中文-->
+        <script src="/public/js/locales/zh.js" type="text/javascript"></script>
+        <!--繁体中文-->
+        <script src="/public/js/locales/zh-TW.js" type="text/javascript"></script>
+        <script src="/public/js/bootstrap.min.js"></script>
+
+
+      <style>
+          .dowebok{
+              list-style-type: none;
+
+          }
+          .doweli{
+              display: inline-block;
+              margin: 10px 0;
+              font-size: 35px;
+          }
+          .doweinput{
+              height: 35px;width: 65px;
+          }
+      </style>
+  </head>
+
+  <body >
+
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      
+      <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+     
+      <!--sidebar end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+       <div class="htmleaf-container" >
+                <div class="container kv-main">
+                    <form enctype="multipart/form-data" method="post" action="/manage.php/manage/index/uploads">
+                        <input type="hidden" name="flag" value="1">
+                       <div class="form-group">
+                            <input id="file-5" name="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                            <br>
+                           <h3>要上传的平台</h3>
+                           <ul class="dowebok" style="">
+                               <li class="doweli"><input class="doweinput" type="checkbox" name="checkbox[]" value="1">网易云</li>
+                               <li class="doweli"><input class="doweinput" type="checkbox" name="checkbox[]" value="2">腾讯云</li>
+                               <li class="doweli"><input class="doweinput" type="checkbox" name="checkbox[]" value="3">七牛云</li>
+                               <!--<li class="doweli"><input class="doweinput" type="checkbox" name="checkbox[]" value="4">滴滴云</li>-->
+                               <!--<li class="doweli"><input class="doweinput" type="checkbox" name="checkbox[]" value="5">天翼云</li>-->
+                               <li class="doweli"><input class="doweinput" type="checkbox" name="checkbox[]" value="6">UCloud</li>
+                           </ul>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                        </div>
+                    </form>
+
+                    
+                </div>
+           
+            </div>
+
+      {volist name="data" id="line"}
+                {$line.site}::<input type="text" style="width: 80%;" size="4" value="{$line.file}">
+            {/volist}
+      <!--footer end-->
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/public/assets/js/jquery.js"></script>
+    <script src="/public/assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/public/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/public/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/public/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+    <!--common script for all pages-->
+    <script src="/public/assets/js/common-scripts.js"></script>
+
+    <!--script for this page-->
+	<script src="/public/js/jquery-ui.js"></script>
+    <script src="/public/assets/js/tasks.js" type="text/javascript"></script>
+
+
+    
+    
+
+  </body>
+</html>
