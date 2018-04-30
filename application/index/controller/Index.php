@@ -2,6 +2,8 @@
 namespace app\index\controller;
 use app\config\model\filebed;
 use app\config\model\key_password;
+use app\manage\controller\Cos;
+use app\manage\controller\Qiniu;
 use think\Controller;
 use \think\Request;
 use \think\View;
@@ -56,7 +58,9 @@ class Index extends Controller {
                 $request = Request::instance();
                 $data['file_name'] = $file->getInfo('name');
                 $data['file_size'] = $info->getSize();
-                $data['file_url'] = '\public\uploads\\'.$info->getSaveName();
+                $cos = new Qiniu();
+                $data['file_url'] = $cos->upload_index(''.$info->getFilename());
+//                unlink('./public/uploads/'.date('Ymd').'/'.$info->getFilename());
                 $data['file_type'] = $info->getExtension();
                 $data['upload_time'] = date('Y-m-d');
                 $data['upload_ip'] = $request->ip();

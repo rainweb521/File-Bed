@@ -49,7 +49,36 @@ class Qiniu extends Common {
         }
 //        exit();
     }
-
+    public function upload_index($url){
+//        http://p2s2tpkky.bkt.clouddn.com/filebed/201803281017025997./public/uploads/20180328/7b28b97439ff98c5becdf71f025c3da6.jpg
+        // 用于签名的公钥和私钥
+        $accessKey = 'BPI8YX6EM6OtAofXhizQ-OpwWpA96SVDFNYuad08';
+        $secretKey = 'EeNqy2iBVuc-ml-69La4uit3pxa2Q24nSDw2MGkG';
+        $bucket = "uploads";
+        // 初始化签权对象
+        $auth = new Auth($accessKey, $secretKey);
+        // 生成上传 Token
+        $token = $auth->uploadToken($bucket);
+        // 要上传文件的本地路径
+        $filePath = $url;
+        // 上传到七牛后保存的文件名
+        $key = 'index_filebed/'.date('YmdHis') . rand(0, 9999).$filePath;
+//        echo $filePath;exit();
+        $filePath = './public/uploads/'.date('Ymd').'/'.$filePath;
+        // 初始化 UploadManager 对象并进行文件的上传。
+        $uploadMgr = new UploadManager();
+        // 调用 UploadManager 的 putFile 方法进行文件的上传。
+        list($ret, $err) = $uploadMgr->putFile($token, $key, $filePath);
+//        echo "\n====> putFile result: \n";
+        if ($err !== null) {
+//            return 'http://p2s2tpkky.bkt.clouddn.com/'.$key;
+            var_dump($err);
+        } else {
+//            var_dump($ret);
+            return 'http://p2s2tpkky.bkt.clouddn.com/'.$key;
+        }
+//        exit();
+    }
 
 
 }
