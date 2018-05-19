@@ -89,6 +89,7 @@ class Index extends Common {
         }else{
 //            $data['file'] = $this->upload_nos();
             $box = Request::instance()->post('checkbox/a');
+            $note = Request::instance()->post('note');
             if ($box!=null){
                 $myfile_model = new myuploadfile();
                 foreach ($box as $l){
@@ -114,6 +115,7 @@ class Index extends Common {
                         $line['status'] = 6;
                         $line['site'] = 'Ucloud';
                     }
+                    $line['note'] = $note;
                     $myfile_model->insert_myuploadfileInfo($line);
                     array_push($data,$line);
                 }
