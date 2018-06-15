@@ -2,3 +2,7 @@
 composer.lock
 *.log
 thinkphp
+vendor
+application
+public
+manage.php

@@ -59,6 +59,7 @@
 	                  	  	  <hr>
                               <thead>
                               <tr>
+                                  <th> 备注</th>
                                   <th> 站点名称</th>
                                   <th> 文件地址</th>
                                   <th class="hidden-phone">上传时间</th>
@@ -67,6 +68,7 @@
                               <tbody>
                               {volist name="data" id="line"}
                               <tr>
+                                  <td>{$line.note}</td>
                                   <td>{$line.site}</td>
                                   <td>{$line.file}</td>
                                   <td>{$line.add_time}</td>
